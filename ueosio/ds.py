@@ -388,8 +388,8 @@ class DataStream():
     def pack_bytes(self, v):
         if type(v) == int or type(v) == float:
             v = str(v)
-        self.pack_varuint32(len(v) if v else 0)
         if type(v) == str: v = v.encode()
+        self.pack_varuint32(len(v) if v else 0)
         if v: self.write(v)
 
     def unpack_bytes(self):
